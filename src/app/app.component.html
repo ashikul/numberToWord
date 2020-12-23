@@ -1,14 +1,14 @@
 	<h1>Number To Word Converter</h1>
 
-	<input id="numberToWordInput" type="number" value="5237">
-	<button id="numberToWordButton" type="text">Convert</button>
+	<input id="numberToWordInput" type="number" [(ngModel)]="inputNumber" maxlength="9" placeholder="Enter a number" required>
+	<button id="numberToWordButton" type="text" (click)="clickConvert(inputNumber)">Convert</button>
 
   <br/>
   <br/>
   
 	<div>
 	  <span>Output: </span>
-	  <span id="numberToWordOutput"></span>
+	  <span id="numberToWordOutput">{{outputWords}}</span>
 	</div>
 
 
