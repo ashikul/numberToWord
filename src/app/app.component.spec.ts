@@ -16,10 +16,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'numberToWordConverter'`, () => {
+  it(`should have as title 'Number To Word Converter'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('numberToWordConverter');
+    expect(app.title).toEqual('Number To Word Converter');
   });
 
   it('should render title', () => {
