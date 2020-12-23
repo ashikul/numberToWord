@@ -1,4 +1,4 @@
-export function numberToWordConverter(inputNumber: string) {
+export function covertNumberToWord(inputNumber: string) {
 
     if (parseInt(inputNumber) === 0) {
         return 'Zero';
@@ -15,7 +15,9 @@ export function numberToWordConverter(inputNumber: string) {
         threeDigitChunks: Array<string>,
         threeDigitChunksLength: number,
         threeDigitIntegerList: Array<number>,
-        threeDigitIntegerWords: Array<string>;
+        threeDigitIntegerWords: Array<string>,
+        output: string,
+        outputCapitalized: string;
 
     const AND_WORD = 'and';
 
@@ -66,9 +68,9 @@ export function numberToWordConverter(inputNumber: string) {
 
     }
 
-    const output = threeDigitIntegerWords.reverse().join(' ');
+    output = threeDigitIntegerWords.reverse().join(' ');
 
-    const outputCapitalized = output[0].toUpperCase() + output.slice(1);
+    outputCapitalized = output[0].toUpperCase() + output.slice(1);
 
     return outputCapitalized;
 }

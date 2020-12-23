@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { numberToWordConverter } from './utility/numberToWordConverter';
+import { covertNumberToWord } from './utility/covertNumberToWord';
 
 @Component({
   selector: 'app-root',
@@ -26,7 +26,7 @@ export class AppComponent {
         alert('Invalid Input - Only numbers under 1 billion are currently supported');
         this.clearInputAndOutputs();
       } else {
-        this.outputWords = numberToWordConverter(inputNumber);
+        this.outputWords = covertNumberToWord(inputNumber);
       }
     }
   }
