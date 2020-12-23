@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  max-width: 38rem;
+  padding: 2rem;
+  margin: auto;
+  font-family: Liberation Sans,
+    Arial,
+    sans-serif;
+  background-color: #fffaf7;
+  line-height: 1.5;
+}
+
+#numberToWordOutputTitle {
+  font-weight: bold;
+}

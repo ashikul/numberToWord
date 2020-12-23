@@ -1,4 +1,4 @@
-export function covertNumberToWord(inputNumber: string) {
+export function convertNumberToWord(inputNumber: string) {
 
     if (parseInt(inputNumber) === 0) {
         return 'Zero';
