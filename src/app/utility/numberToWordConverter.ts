@@ -30,6 +30,9 @@ export function numberToWordConverter(inputNumber: string) {
     }
 
     threeDigitIntegerWords = [];
+
+    threeDigitChunksLength = threeDigitChunks.length;
+
     for (var i = 0; i < threeDigitChunksLength; i++) {
 
         threeDigitIntegerList = threeDigitChunks[i].split('').reverse().map(parseFloat);

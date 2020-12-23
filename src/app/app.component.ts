@@ -29,12 +29,6 @@ export class AppComponent {
         this.outputWords = numberToWordConverter(inputNumber);
       }
     }
-
-    //push
-    //build
-    //unit tests
-    //deploy
-    //email
   }
 
   clearInputAndOutputs() {
