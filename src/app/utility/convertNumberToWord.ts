@@ -43,7 +43,9 @@ export function convertNumberToWord(inputNumber: string) {
             threeDigitIntegerList[0] += 10;
         }
 
-        if (thousandsUnits[i]) {
+        const checkIfNotThreeZeroes = threeDigitIntegerList[2] + threeDigitIntegerList[1] + threeDigitIntegerList[0];
+
+        if (thousandsUnits[i] && checkIfNotThreeZeroes !== 0) {
             threeDigitIntegerWords.push(thousandsUnits[i]);
         }
 
@@ -75,3 +77,13 @@ export function convertNumberToWord(inputNumber: string) {
     return outputCapitalized;
 }
 
+export function convertNumberToWordIncludeNegatives(inputNumber: string) {
+    let output: string;
+    let inputNumberIntParse = parseInt(inputNumber);
+    if (inputNumberIntParse < 0) {
+        output = "Negative " + convertNumberToWord(inputNumber.slice(1));
+    } else {
+        output = convertNumberToWord(inputNumber);
+    }
+    return output;
+}

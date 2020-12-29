@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { convertNumberToWord } from './utility/convertNumberToWord';
+import { convertNumberToWordIncludeNegatives } from './utility/convertNumberToWord';
+import { regexConstants } from './utility/regexConstants';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,8 @@ import { convertNumberToWord } from './utility/convertNumberToWord';
 export class AppComponent {
   inputNumber: String = '';
   outputWords: String = '';
+  MAX_NUMBER = 999999999;
+  MIN_NUMBER = -999999999;
 
   clickConvert(inputNumber) {
     if (!inputNumber && inputNumber !== 0) {
@@ -15,18 +18,18 @@ export class AppComponent {
       this.clearInputAndOutputs();
       return;
     } else {
-      const positiveIntegerRegex = /^[0-9]*$/ //includes zero
-      const isValidPositiveInteger = positiveIntegerRegex.exec(inputNumber);
+      let isValidInteger = regexConstants.POSITIVE_AND_NEGATIVE_INTEGERS.test(inputNumber);
+      let inputNumberIntParse = parseInt(inputNumber);
 
-      if (!isValidPositiveInteger) {
-        alert('Invalid Input - Not a positive integer');
+      if (!isValidInteger) {
+        alert('Invalid Input - Not a positive or negative integer');
         this.clearInputAndOutputs();
         return;
-      } else if (inputNumber.toString().length > 9) {
-        alert('Invalid Input - Only numbers under 1 billion are currently supported');
+      } else if (inputNumberIntParse > this.MAX_NUMBER || inputNumberIntParse < this.MIN_NUMBER) {
+        alert('Invalid Input - Only numbers under 1 billion or above negative 1 billion are currently supported');
         this.clearInputAndOutputs();
       } else {
-        this.outputWords = convertNumberToWord(inputNumber);
+        this.outputWords = convertNumberToWordIncludeNegatives(inputNumber.toString());
       }
     }
   }
