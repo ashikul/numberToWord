@@ -10,7 +10,7 @@ export class AppComponent {
   outputWords: String = '';
 
   clickConvert(inputNumber) {
-    if (!inputNumber) {
+    if (!inputNumber && inputNumber !== 0) {
       alert('Please enter a number');
       this.clearInputAndOutputs();
       return;
